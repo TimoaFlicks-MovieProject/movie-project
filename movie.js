@@ -84,10 +84,10 @@ async function addMovie() {
             // Successfully added the movie, now update the movie list
             movieDisplay();
         } else {
-            console.log('Error adding the movie.');
+            alert('Error adding the movie.');
         }
     } else {
-        console.log('No movie found with that title.');
+        alert('No movie found with that title.');
     }
 }
 
@@ -105,10 +105,49 @@ function searchMovies() {
     });
 }
 
+function sortMovies(order) {
+    const movieCards = $('.col-4');
+    const sortedMovies = movieCards.get().sort((a, b) => {
+        const movieTitleA = $(a).find('.card-title').text().toLowerCase();
+        const movieTitleB = $(b).find('.card-title').text().toLowerCase();
+        return order === 'asc' ? movieTitleA.localeCompare(movieTitleB) : movieTitleB.localeCompare(movieTitleA);
+    });
+
+    $("#displayMovies").empty(); // Clear existing movie list
+    $("#displayMovies").append(sortedMovies);
+}
+
+$('#sortAZ').click(function () {
+    sortMovies('asc'); // 'asc' for ascending order (A-Z)
+});
+
+
+$('#sortZA').click(function () {
+    sortMovies('desc'); // 'desc' for descending order (Z-A)
+});
+
+async function deleteMovie(movieId) {
+    const url = `https://rocky-enchanting-wineberry.glitch.me/movies/${movieId}`;
+    const options = {
+        method: 'DELETE',
+    };
+
+    const deleteResponse = await fetch(url, options);
+    if (deleteResponse.ok) {
+        $("#displayMovies").empty();
+        // Successfully deleted the movie, now update the movie list
+        movieDisplay();
+    } else {
+        console.log('Error deleting the movie.');
+    }
+}
+
 $('#searchInput').on('input', function () {
     searchMovies();
 });
-// CREATING EDIT MOVIE FUNCTION
+
+
+
 $(document).on('click', '.edit-movie', function () {
     let editId = $(this).attr('id').split('movie')[1]
     console.log(editId)
@@ -124,7 +163,7 @@ $(document).on('click', '.edit-movie', function () {
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
-        }).then(response => response.json)
+        }).then(response => response.json()) // Add parentheses to properly parse response JSON
     })
 })
 
@@ -135,6 +174,6 @@ $('#addMovie').click(function () {
 
 // EVENT LISTENER FOR EDIT MOVIE
 $(document).on('click', '.delete-movie', function () {
-    let movieId = $(this).attr('id')
-    fetch(`https://rocky-enchanting-wineberry.glitch.me/movies/${movieId}`, {method: 'DELETE'})
-})
+    let movieId = $(this).attr('id');
+    deleteMovie(movieId);
+});
