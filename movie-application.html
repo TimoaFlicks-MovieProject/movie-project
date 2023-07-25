@@ -7,8 +7,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
     <script src="https://kit.fontawesome.com/dd0c8072f5.js" crossorigin="anonymous"></script>
 
     <title>Movie Project</title>
@@ -20,7 +23,14 @@
     </div>
     <h3 id="load-word">Loading...</h3>
 </div>
-<nav class="navbar navbar-expand-lg">
+
+
+<!--<div class="jumbotron jumbotron-fluid">-->
+<!--    <div class="container">-->
+<!--        <h1 class="display-4 jumbo-header movie-header">Timoa Flicks</h1>-->
+<!--    </div>-->
+<!--</div>-->
+<nav class="navbar ">
     <h5 class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
         aria-expanded="false">
         Add A Movie
@@ -43,12 +53,8 @@
 </nav>
 
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4 jumbo-header movie-header">Timoa Flicks</h1>
-    </div>
-</div>
 
+<p class="body-h">My Favorites</p>
 
 <div class="container">
     <div class="row card-deck" id="displayMovies">
@@ -107,7 +113,7 @@
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
 
-<script src="keys.js"></script>
+<script src="js/keys.js"></script>
 <script src="assets/jquery-2.2.4.js"></script>
 <script src="movie.js"></script>
 </body>
