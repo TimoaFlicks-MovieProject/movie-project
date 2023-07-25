@@ -1,5 +1,12 @@
 body, .navbar {
-    background-color: #D9CFC1;
+    background-color: #695679;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.navbar{
+
+    background-color:#cac9d3;
 }
 .center {
     position: absolute;
@@ -15,7 +22,7 @@ body, .navbar {
 }
 .btn {
     color: white;
-    background-color: #A77E58;
+    background-color: #06324f;
 }
 
 .movie-header {
@@ -72,9 +79,9 @@ body, .navbar {
 
 #plot-box {
     padding: 20px;
-    border: 2px solid #A77E58;
-    color: #D9CFC1;
-    background-color: #422b02;
+    border: 2px solid #06324f;
+    color: white;
+    background-color: rgba(6, 50, 79, 0.89);
 }
 footer {
     height: auto;
@@ -90,5 +97,55 @@ li {
     list-style-type: none;
 }
 .header-4 {
-    color: #422b02;
+    color: #06324f;
+}
+
+
+button#sortAZ, button#sortZA{
+
+    color: white;
+    background-color: #06324f;
+    border: none;
+    border-radius: 5px;
+}
+
+.text-dark {
+    color: #06324f!important;
+}
+a.text-dark:hover {
+    color: #000000 !important;
+}
+
+.card {
+    border-radius: 20px;
+    transition: all .3s;
+    background-color: #cac9d3;
+}
+
+
+.card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+    transform: scale(0.98);
+}
+
+img.poster{
+    border-radius: 20px;
+}
+
+.body-h{
+    font-size: 35px;
+    text-align: center;
+    font-weight: Regular 400;
+    color: #06324f;
+    margin-top: 3rem;
+}
+
+.list-group-item {
+    background-color: #cac9d3;
+}
+
+
+h1{
+    text-align: center;
+    font-size: 20px;
 }
