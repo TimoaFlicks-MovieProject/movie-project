@@ -1,0 +1,94 @@
+body, .navbar {
+    background-color: #D9CFC1;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.loading {
+    visibility: hidden;
+}
+#load-word {
+    position: relative;
+    left: -35px;
+}
+.btn {
+    color: white;
+    background-color: #A77E58;
+}
+
+.movie-header {
+    background-color: white;
+    opacity: 80%;
+}
+.poster {
+    height: 400px;
+    width: auto;
+}
+.user-add-input{
+    width: 300px;
+}
+.jumbo-header {
+    text-align: center;
+}
+
+.button {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgb(145, 92, 182);
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
+}
+
+.glow-button:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.text {
+    border: 2px solid #b2b7c2;
+    font-size: 22px;
+    -webkit-transition: box-shadow linear 1s;
+    transition: box-shadow linear 1s;
+}
+.text:focus {
+    box-shadow: 0 0 20px #143b91;
+}
+
+#card-shadow {
+    box-shadow:
+            34.2px 20.5px 8.1px -11px rgba(0, 0, 0, 0.028),
+            53.6px 32.1px 16.5px -11px rgba(0, 0, 0, 0.053),
+            65.4px 39.2px 26.2px -11px rgba(0, 0, 0, 0.075),
+            74.9px 44.8px 39.4px -11px rgba(0, 0, 0, 0.094),
+            89.2px 53.4px 61.6px -11px rgba(0, 0, 0, 0.113),
+            142px 85px 121px -11px rgba(0, 0, 0, 0.17);
+    margin-bottom: 20px;
+}
+
+#plot-box {
+    padding: 20px;
+    border: 2px solid #A77E58;
+    color: #D9CFC1;
+    background-color: #422b02;
+}
+footer {
+    height: auto;
+    border-top: 2px solid #A77E58;
+    padding: 50px;
+}
+footer ul {
+    display: inline-block;
+    vertical-align: top;
+    color: #A77E58;
+}
+li {
+    list-style-type: none;
+}
+.header-4 {
+    color: #422b02;
+}
