@@ -54,32 +54,60 @@ loadingPromise.then(() => movieDisplay())
 
 
 // CREATING ADD MOVIE FUNCTION
-function addMovie() {
-    let title = $('#title-input').val()
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_PROJECT}&query=${title}`)
-        .then(response => response.json())
-        .then(function (res) {
-            console.log(res);
-            const url = 'https://rocky-enchanting-wineberry.glitch.me/movies';
-            const options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    poster: `https://image.tmdb.org/t/p/w500${res.results[0].poster_path}`,
-                    title: res.results[0].title,
-                    year: (res.results[0].release_date).split("-")[0],
-                    plot: res.results[0].overview,
-                    rating: Math.round(res.results[0].vote_average),
-                }),
-            };
-            fetch(url, options)
-                .then(response => console.log(response))
-                .then(error => console.log(error))
-        })
+async function addMovie() {
+    let title = $('#title-input').val();
+    const response = await fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_PROJECT}&query=${title}`
+    );
+    const data = await response.json();
+
+    // Check if there's any result for the movie search
+    if (data.results.length > 0) {
+        const movieData = data.results[0];
+        const url = 'https://rocky-enchanting-wineberry.glitch.me/movies';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                poster: `https://image.tmdb.org/t/p/w500${movieData.poster_path}`,
+                title: movieData.title,
+                year: (movieData.release_date).split("-")[0],
+                plot: movieData.overview,
+                rating: Math.round(movieData.vote_average),
+            }),
+        };
+
+        const addResponse = await fetch(url, options);
+        if (addResponse.ok) {
+            // Successfully added the movie, now update the movie list
+            movieDisplay();
+        } else {
+            console.log('Error adding the movie.');
+        }
+    } else {
+        console.log('No movie found with that title.');
+    }
 }
 
+function searchMovies() {
+    const searchQuery = $('#searchInput').val().toLowerCase();
+    const movieCards = $('.col-4');
+
+    movieCards.each(function () {
+        const movieTitle = $(this).find('.card-title').text().toLowerCase();
+        if (movieTitle.includes(searchQuery)) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+}
+
+$('#searchInput').on('input', function () {
+    searchMovies();
+});
 // CREATING EDIT MOVIE FUNCTION
 $(document).on('click', '.edit-movie', function () {
     let editId = $(this).attr('id').split('movie')[1]
