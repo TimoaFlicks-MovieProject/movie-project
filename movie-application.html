@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=REM:wght@100;200;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <script src="https://kit.fontawesome.com/dd0c8072f5.js" crossorigin="anonymous"></script>
 
@@ -18,19 +18,17 @@
 </head>
 <body>
 
-<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-    <div class="col-md-3 mb-2 mb-md-0">
-        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-            <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-    </div>
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 nav-barz ">
+    <div class="col">
+        <img class="iconz" src="img/movieicon.png" height="600" width="600"/></div>
 
-    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+
+
+    <ul class="nav col-12 col-md-auto mb-2 mb-md-0 d-flex">
         <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2">Features</a></li>
-        <li><a href="#" class="nav-link px-2">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2">About</a></li>
+        <li><a href="#" class="nav-link px-2">Discover</a></li>
+        <li><a href="#" class="nav-link px-2">Trailers</a></li>
+        <li><a href="#" class="nav-link px-2">Buy Tickets</a></li>
     </ul>
 
     <div class="col-md-3 text-end">
@@ -38,10 +36,11 @@
         <button type="button" class="btn btn-primary">Sign-up</button>
     </div>
 </header>
-
-<div class="container-fluid ah-hero d-flex align-items-center p-0">
-
+<div class="banner-container">
+    <div class="container-fluid ah-hero d-flex align-items-center banner"></div>
 </div>
+
+
 
 
 
@@ -144,6 +143,6 @@
 
 <script src="js/keys.js"></script>
 <script src="assets/jquery-2.2.4.js"></script>
-<script src="movie.js"></script>
+<script src="js/movie.js"></script>
 </body>
 </html>
