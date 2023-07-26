@@ -232,3 +232,15 @@ $(document).on('click', '.delete-movie', function () {
     let movieId = $(this).attr('id');
     deleteMovie(movieId);
 });
+
+
+// JavaScript to show the loader while the page is loading
+window.addEventListener('load', function () {
+// Show the content container
+    document.getElementById('content-container').style.display = 'block';
+
+// Delay for 4 seconds (4000 milliseconds) before hiding the loader
+    setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';
+    }, 3000);
+});
