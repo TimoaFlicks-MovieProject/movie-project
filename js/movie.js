@@ -9,6 +9,7 @@ const loadingPromise = new Promise((resolve) => {
 });
 
 function movieDisplay() {
+    $("#displayMovies").empty();
     fetch("https://rocky-enchanting-wineberry.glitch.me/movies")
         .then(res => res.json())
         .then(function (movies) {
@@ -165,6 +166,60 @@ $(document).on('click', '.edit-movie', function () {
             },
         }).then(response => response.json()) // Add parentheses to properly parse response JSON
     })
+})
+
+$(function () {
+
+    // function konamiCode() {
+    //     $(this).alert('you did it gangy')
+    // }
+    //
+    // $(document)
+    //     .on('keyup', konamiCode())
+    //
+
+    let allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down',
+        65: 'a',
+        66: 'b'
+    };
+
+// the 'official' Konami Code sequence
+    let konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
+
+// a variable to remember the 'position' the user has reached so far.
+    let konamiCodePosition = 0;
+
+// add keydown event listener
+    document.addEventListener('keydown', function (e) {
+        // get the value of the key code from the key map
+        let key = allowedKeys[e.keyCode];
+        // get the value of the required key from the konami code
+        let requiredKey = konamiCode[konamiCodePosition];
+
+        // compare the key with the required key
+        if (key === requiredKey) {
+
+            // move to the next key in the konami code sequence
+            konamiCodePosition++;
+
+            // if the last key is reached, activate cheats
+            if (konamiCodePosition === konamiCode.length) {
+                activateCheats();
+                konamiCodePosition = 0;
+            }
+        } else {
+            konamiCodePosition = 0;
+        }
+    });
+
+    function activateCheats() {
+        window.location.href = 'https://www.amazon.com/gp/video/detail/amzn1.dv.gti.aca9f771-4256-ddca-723e-c4f634530a4d?autoplay=0&ref_=nav_custrec_signin';
+
+    }
 })
 
 // EVENT LISTENER FOR ADD MOVIE
